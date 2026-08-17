@@ -1,0 +1,8 @@
+{
+  "study-notes": {
+    "distributed-systems": {
+      "1. Map reduce.md": "study-notes/distributed-systems/1. Map reduce.md",
+      "2. RPC and Threads.md": "study-notes/distributed-systems/2. RPC and Threads.md"
+    }
+  }
+}

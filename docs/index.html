@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurukshetra</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>Kurukshetra</h1>
+            </div>
+            <div class="tree" id="file-tree"></div>
+        </aside>
+        <div class="resize-handle" id="resize-handle"></div>
+        <main class="content">
+            <div class="top-bar">
+                <div class="breadcrumb" id="breadcrumb"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Toggle theme">&#9790;</button>
+            </div>
+            <article id="note-content">
+                <div class="welcome">
+                    <h2>Welcome</h2>
+                    <p>Select a note from the sidebar to start reading.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
