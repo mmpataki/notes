@@ -214,6 +214,32 @@
             var html = marked.parse(md);
             document.getElementById("note-content").innerHTML = headerHtml + html;
 
+            // Convert cardlink code blocks to preview cards
+            document.querySelectorAll("#note-content pre code.language-cardlink").forEach(function(code) {
+                var pre = code.parentElement;
+                var lines = code.textContent.trim().split("\n");
+                var data = {};
+                lines.forEach(function(line) {
+                    var m = line.match(/^(\w+):\s*(.*)/);
+                    if (m) data[m[1]] = m[2].replace(/^["']|["']$/g, "");
+                });
+                if (!data.url) return;
+                var card = document.createElement("a");
+                card.className = "cardlink";
+                card.href = data.url;
+                card.target = "_blank";
+                card.rel = "noopener";
+                var content = '<div class="cardlink-content">';
+                content += '<div class="cardlink-title">' + (data.title || data.url) + '</div>';
+                if (data.description) content += '<div class="cardlink-description">' + data.description + '</div>';
+                content += '<div class="cardlink-host">';
+                if (data.favicon) content += '<img src="' + data.favicon + '">';
+                content += (data.host || '') + '</div></div>';
+                if (data.image) content += '<img class="cardlink-image" src="' + data.image + '">';
+                card.innerHTML = content;
+                pre.parentNode.replaceChild(card, pre);
+            });
+
             // Add copy buttons to code blocks
             document.querySelectorAll("#note-content pre").forEach(function(pre) {
                 var wrapper = document.createElement("div");
