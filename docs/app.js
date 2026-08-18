@@ -36,12 +36,14 @@
 
         for (var name in tree) {
             var value = tree[name];
-            if (typeof value === "object" && value !== null) {
+            if (typeof value === "object" && value !== null && !value.path) {
                 if (HIDDEN_DIRS.indexOf(name) === -1) {
                     folders.push([name, value]);
                 }
             } else if (name.endsWith(".md")) {
-                files.push([name, value]);
+                var path = typeof value === "string" ? value : value.path;
+                var title = (typeof value === "object" && value.title) ? value.title : name.replace(/\.md$/, "");
+                files.push([name, path, title]);
             }
         }
 
@@ -72,11 +74,11 @@
         }
 
         for (var j = 0; j < files.length; j++) {
-            var fileName = files[j][0];
             var path = files[j][1];
+            var title = files[j][2];
             var file = document.createElement("div");
             file.className = "tree-item tree-file";
-            file.textContent = fileName.replace(/\.md$/, "");
+            file.textContent = title;
             file.dataset.path = path;
             file.addEventListener("click", (function(p) {
                 return function() { loadNote(p); };
@@ -92,13 +94,20 @@
         f.classList.add("open");
     });
 
+    function getPath(value) {
+        if (typeof value === "string") return value;
+        if (typeof value === "object" && value.path) return value.path;
+        return null;
+    }
+
     function findAsset(filename) {
         function search(tree) {
             for (var name in tree) {
                 var value = tree[name];
-                if (typeof value === "string" && name === filename) {
-                    return value;
-                } else if (typeof value === "object") {
+                var p = getPath(value);
+                if (p && name === filename) {
+                    return p;
+                } else if (typeof value === "object" && !value.path) {
                     var found = search(value);
                     if (found) return found;
                 }
@@ -114,11 +123,18 @@
         function search(tree) {
             for (var name in tree) {
                 var value = tree[name];
-                if (typeof value === "string") {
-                    if (name === target || value === target || value.endsWith("/" + target)) {
-                        return value;
+                var p = getPath(value);
+                if (p && p.endsWith(".md")) {
+                    if (name === target || p === target || p.endsWith("/" + target)) {
+                        return p;
                     }
-                } else if (typeof value === "object") {
+                    // Also match by title
+                    if (typeof value === "object" && value.title) {
+                        var titleFile = value.title.trim();
+                        if (!titleFile.endsWith(".md")) titleFile += ".md";
+                        if (titleFile === target) return p;
+                    }
+                } else if (typeof value === "object" && !value.path) {
                     var found = search(value);
                     if (found) return found;
                 }
@@ -135,13 +151,17 @@
             var md = await resp.text();
 
             // Extract metadata from top of file
+            var title = "";
             var date = "";
             var tags = [];
             var lines = md.split("\n");
             var contentStart = 0;
 
-            for (var i = 0; i < Math.min(lines.length, 5); i++) {
-                if (lines[i].match(/^date:\s*/)) {
+            for (var i = 0; i < Math.min(lines.length, 10); i++) {
+                if (lines[i].match(/^title:\s*/)) {
+                    title = lines[i].replace(/^title:\s*/, "").trim();
+                    contentStart = i + 1;
+                } else if (lines[i].match(/^date:\s*/)) {
                     date = lines[i].replace(/^date:\s*/, "").trim();
                     contentStart = i + 1;
                 } else if (lines[i].match(/^tags:\s*/)) {
@@ -158,10 +178,12 @@
 
             md = lines.slice(contentStart).join("\n");
 
+            // Use title from metadata, fallback to filename
+            var noteName = title || decodeURIComponent(path).split("/").pop().replace(/\.md$/, "");
+
             // Build breadcrumb
-            var decodedPath = decodeURIComponent(path);
-            var parts = decodedPath.split("/");
-            var noteName = parts.pop().replace(/\.md$/, "");
+            var parts = path.split("/");
+            parts.pop();
             var breadcrumbHtml = parts.join(" / ");
             if (breadcrumbHtml) breadcrumbHtml += " / ";
             breadcrumbHtml += "<span>" + noteName + "</span>";

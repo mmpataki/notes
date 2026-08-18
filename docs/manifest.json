@@ -5,15 +5,42 @@
         "Pasted image 20260808111314.png": "notes/inference/assets/Pasted image 20260808111314.png",
         "Pasted image 20260809103539.png": "notes/inference/assets/Pasted image 20260809103539.png"
       },
-      "part 1 - llama.cpp on k8s, the napkin math.md": "notes/inference/part 1 - llama.cpp on k8s, the napkin math.md",
-      "part 2 - tech stack.md": "notes/inference/part 2 - tech stack.md",
-      "part 3 - device plugins.md": "notes/inference/part 3 - device plugins.md",
-      "part 4 - k8s networking.md": "notes/inference/part 4 - k8s networking.md",
-      "part 5 - helm and headlamp.md": "notes/inference/part 5 - helm and headlamp.md",
-      "part 6 - k8s storage.md": "notes/inference/part 6 - k8s storage.md",
-      "part 7 - llama.cpp.md": "notes/inference/part 7 - llama.cpp.md",
-      "part 8 - setting up monitoring.md": "notes/inference/part 8 - setting up monitoring.md",
-      "part 9 - remounting.md": "notes/inference/part 9 - remounting.md"
+      "part-1-llama-cpp-on-k8s-the-napkin-math.md": {
+        "path": "notes/inference/part-1-llama-cpp-on-k8s-the-napkin-math.md",
+        "title": "part 1 - llama.cpp on k8s, the napkin math"
+      },
+      "part-2-tech-stack.md": {
+        "path": "notes/inference/part-2-tech-stack.md",
+        "title": "part 2 - tech stack"
+      },
+      "part-3-device-plugins.md": {
+        "path": "notes/inference/part-3-device-plugins.md",
+        "title": "part 3 - device plugins"
+      },
+      "part-4-k8s-networking.md": {
+        "path": "notes/inference/part-4-k8s-networking.md",
+        "title": "part 4 - k8s networking"
+      },
+      "part-5-helm-and-headlamp.md": {
+        "path": "notes/inference/part-5-helm-and-headlamp.md",
+        "title": "part 5 - helm and headlamp"
+      },
+      "part-6-k8s-storage.md": {
+        "path": "notes/inference/part-6-k8s-storage.md",
+        "title": "part 6 - k8s storage"
+      },
+      "part-7-llama-cpp.md": {
+        "path": "notes/inference/part-7-llama-cpp.md",
+        "title": "part 7 - llama.cpp"
+      },
+      "part-8-setting-up-monitoring.md": {
+        "path": "notes/inference/part-8-setting-up-monitoring.md",
+        "title": "part 8 - setting up monitoring"
+      },
+      "part-9-remounting.md": {
+        "path": "notes/inference/part-9-remounting.md",
+        "title": "part 9 - remounting"
+      }
     }
   }
 }

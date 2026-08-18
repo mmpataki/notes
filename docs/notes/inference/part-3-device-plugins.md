@@ -1,3 +1,4 @@
+title: part 3 - device plugins
 date: 06-aug-2026
 tags: #k8s  #public
 

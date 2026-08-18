@@ -1,3 +1,4 @@
+title: part 8 - setting up monitoring
 date: 08-aug-2026
 tags: #llama-cpp #k8s  #public
 

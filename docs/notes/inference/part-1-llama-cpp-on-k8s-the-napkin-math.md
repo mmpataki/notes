@@ -1,3 +1,4 @@
+title: part 1 - llama.cpp on k8s, the napkin math
 date: 06-aug-2026
 tags: #docker #k8s #llama-cpp #public
 

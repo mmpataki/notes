@@ -1,3 +1,4 @@
+title: part 4 - k8s networking
 date: 06-aug-2026
 tags: #k8s #networking #public
 

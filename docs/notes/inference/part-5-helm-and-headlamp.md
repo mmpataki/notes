@@ -1,3 +1,4 @@
+title: part 5 - helm and headlamp
 date: 06-aug-2026
 tags: #k8s #headlamp #public
 

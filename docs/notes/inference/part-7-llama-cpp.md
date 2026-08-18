@@ -1,3 +1,4 @@
+title: part 7 - llama.cpp
 date: 06-aug-2026
 tags: #llama-cpp #docker  #public
 

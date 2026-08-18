@@ -1,3 +1,4 @@
+title: part 6 - k8s storage
 date: 06-aug-2026
 tags: #k8s #pv #storage #public
 

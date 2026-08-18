@@ -1,3 +1,4 @@
+title: part 2 - tech stack
 date: 06-Aug-2026
 tags: #docker #k8s #public
 

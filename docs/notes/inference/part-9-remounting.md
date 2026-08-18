@@ -1,3 +1,4 @@
+title: part 9 - remounting
 date: 15-aug-2026
 tags: #storage #k8s  #public
 
