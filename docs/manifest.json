@@ -1,23 +1,27 @@
 {
+  "notes": {
+    "inference": {
+      "assets": {
+        "Pasted image 20260808111314.png": "notes/inference/assets/Pasted image 20260808111314.png",
+        "Pasted image 20260809103539.png": "notes/inference/assets/Pasted image 20260809103539.png"
+      },
+      "part 1 - llama.cpp on k8s, the napkin math.md": "notes/inference/part 1 - llama.cpp on k8s, the napkin math.md",
+      "part 2 - tech stack.md": "notes/inference/part 2 - tech stack.md",
+      "part 3 - device plugins.md": "notes/inference/part 3 - device plugins.md",
+      "part 4 - k8s networking.md": "notes/inference/part 4 - k8s networking.md",
+      "part 5 - helm and headlamp.md": "notes/inference/part 5 - helm and headlamp.md",
+      "part 6 - k8s storage.md": "notes/inference/part 6 - k8s storage.md",
+      "part 7 - llama.cpp.md": "notes/inference/part 7 - llama.cpp.md",
+      "part 8 - setting up monitoring.md": "notes/inference/part 8 - setting up monitoring.md",
+      "part 9 - remounting.md": "notes/inference/part 9 - remounting.md"
+    }
+  },
   "study-notes": {
-    "distributed-systems": {
-      "1. Map reduce.md": "study-notes/distributed-systems/1. Map reduce.md",
-      "2. RPC and Threads.md": "study-notes/distributed-systems/2. RPC and Threads.md"
-    },
     "inference": {
       "assets": {
         "Pasted image 20260808111314.png": "study-notes/inference/assets/Pasted image 20260808111314.png",
         "Pasted image 20260809103539.png": "study-notes/inference/assets/Pasted image 20260809103539.png"
-      },
-      "part 1 - llama.cpp on k8s, the napkin math.md": "study-notes/inference/part 1 - llama.cpp on k8s, the napkin math.md",
-      "part 2 - tech stack.md": "study-notes/inference/part 2 - tech stack.md",
-      "part 3 - device plugins.md": "study-notes/inference/part 3 - device plugins.md",
-      "part 4 - k8s networking.md": "study-notes/inference/part 4 - k8s networking.md",
-      "part 5 - helm and headlamp.md": "study-notes/inference/part 5 - helm and headlamp.md",
-      "part 6 - k8s storage.md": "study-notes/inference/part 6 - k8s storage.md",
-      "part 7 - llama.cpp.md": "study-notes/inference/part 7 - llama.cpp.md",
-      "part 8 - setting up monitoring.md": "study-notes/inference/part 8 - setting up monitoring.md",
-      "part 9 - remounting.md": "study-notes/inference/part 9 - remounting.md"
+      }
     }
   }
 }
