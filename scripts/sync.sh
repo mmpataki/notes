@@ -4,11 +4,11 @@
 VAULT_DIR="${VAULT_DIR:-$HOME/projects/obsidian/kurukshetra}"
 NOTES_DIR="$(cd "$(dirname "$0")/.." && pwd)/docs"
 
-# Clean old content (keep static assets)
-find "$NOTES_DIR" -name "*.md" -delete
-find "$NOTES_DIR" -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.svg" | xargs rm -f 2>/dev/null
-find "$NOTES_DIR" -mindepth 1 -type d -not -name "fonts" -empty -delete
+# Nuke everything except static site files
+find "$NOTES_DIR" -mindepth 1 -not -name "index.html" -not -name "style.css" -not -name "app.js" -not -name "manifest.json" -not -path "*/fonts/*" -not -name "fonts" -delete
+find "$NOTES_DIR" -mindepth 1 -type d -empty -delete
 
+# Copy #public notes and their assets
 find "$VAULT_DIR" -name "*.md" -not -path "*/.obsidian/*" -not -path "*/.git/*" -not -path "*/copilot/*" -not -path "*/daily-notes/*" -not -path "*/assets/templates/*" -not -path "*/notes-site/*" | while read -r file; do
     if grep -q "#public" "$file"; then
         rel_path="${file#$VAULT_DIR/}"
@@ -42,7 +42,7 @@ find "$VAULT_DIR" -name "*.md" -not -path "*/.obsidian/*" -not -path "*/.git/*" 
     fi
 done
 
-# Generate manifest.json for the file tree
+# Generate manifest.json
 cd "$NOTES_DIR"
 python3 -c "
 import os, json
@@ -51,7 +51,7 @@ def build_tree(root):
     tree = {}
     for entry in sorted(os.listdir(root)):
         path = os.path.join(root, entry)
-        if entry.startswith('.') or entry in ('index.html', 'style.css', 'app.js', 'manifest.json'):
+        if entry.startswith('.') or entry in ('index.html', 'style.css', 'app.js', 'manifest.json', 'fonts'):
             continue
         if os.path.isdir(path):
             subtree = build_tree(path)
