@@ -7,6 +7,7 @@ NOTES_DIR="$(cd "$(dirname "$0")/.." && pwd)/docs"
 # Clean old content (keep static assets)
 find "$NOTES_DIR" -name "*.md" -delete
 find "$NOTES_DIR" -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.svg" | xargs rm -f 2>/dev/null
+find "$NOTES_DIR" -mindepth 1 -type d -not -name "fonts" -empty -delete
 
 find "$VAULT_DIR" -name "*.md" -not -path "*/.obsidian/*" -not -path "*/.git/*" -not -path "*/copilot/*" -not -path "*/daily-notes/*" -not -path "*/assets/templates/*" -not -path "*/notes-site/*" | while read -r file; do
     if grep -q "#public" "$file"; then
