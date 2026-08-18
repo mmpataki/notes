@@ -305,6 +305,25 @@
     }
 
 
+    // Mobile menu toggle
+    var menuToggle = document.getElementById("menu-toggle");
+    var sidebarOverlay = document.getElementById("sidebar-overlay");
+
+    menuToggle.addEventListener("click", function() {
+        document.getElementById("sidebar").classList.toggle("open");
+    });
+
+    sidebarOverlay.addEventListener("click", function() {
+        document.getElementById("sidebar").classList.remove("open");
+    });
+
+    // Close sidebar on mobile when a note is clicked
+    document.getElementById("file-tree").addEventListener("click", function(e) {
+        if (e.target.classList.contains("tree-file") && window.innerWidth <= 768) {
+            document.getElementById("sidebar").classList.remove("open");
+        }
+    });
+
     // Resize handle
     var handle = document.getElementById("resize-handle");
     var sidebar = document.querySelector(".sidebar");
