@@ -334,14 +334,22 @@
     function buildOutline() {
         var container = document.getElementById("outline-tree");
         container.innerHTML = "";
-        var headings = document.querySelectorAll("#note-content h2, #note-content h3, #note-content h4, #note-content h5");
+        var headings = document.querySelectorAll("#note-content h1:not(.note-title), #note-content h2, #note-content h3, #note-content h4, #note-content h5, #note-content h6");
         if (!headings.length) return;
 
+        // Compute relative depth based on nesting
+        var stack = [];
         headings.forEach(function(h, i) {
             if (!h.id) h.id = "heading-" + i;
             var level = parseInt(h.tagName[1]);
+            while (stack.length && stack[stack.length - 1] >= level) stack.pop();
+            stack.push(level);
+            var depth = stack.length - 1;
+
             var item = document.createElement("div");
-            item.className = "outline-item outline-h" + level;
+            item.className = "outline-item";
+            item.style.paddingLeft = (12 + depth * 10) + "px";
+            if (depth === 0) item.style.fontWeight = "500";
             item.textContent = h.textContent;
             item.addEventListener("click", function() {
                 h.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -414,6 +422,33 @@
             handle.classList.remove("active");
             document.body.style.cursor = "";
             document.body.style.userSelect = "";
+        }
+        if (outlineDragging) {
+            outlineDragging = false;
+            outlineHandle.classList.remove("active");
+            document.body.style.cursor = "";
+            document.body.style.userSelect = "";
+        }
+    });
+
+    // Outline resize handle
+    var outlineHandle = document.getElementById("outline-resize-handle");
+    var outlinePanel = document.getElementById("outline-panel");
+    var outlineDragging = false;
+
+    outlineHandle.addEventListener("mousedown", function(e) {
+        outlineDragging = true;
+        outlineHandle.classList.add("active");
+        document.body.style.cursor = "col-resize";
+        document.body.style.userSelect = "none";
+        e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", function(e) {
+        if (!outlineDragging) return;
+        var newWidth = window.innerWidth - e.clientX;
+        if (newWidth >= 120 && newWidth <= window.innerWidth * 0.4) {
+            outlinePanel.style.width = newWidth + "px";
         }
     });
 })();
