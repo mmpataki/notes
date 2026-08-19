@@ -98,7 +98,7 @@ $ kubectl delete deployment dummy
 
 
 
-#### 3. Unable to mount the PVC on a node
+### 3. Unable to mount the PVC on a node
 
 I have 3 nodes and the PV was bound to a node1. The llama.cpp got scheduled on node2 (because it had some nodeAffinity with which I was experimenting). k8s was not mounting the PV on node2 because the accessModes was set to RWO. Since it was mounted on a node1, it was not being moved. This was the error
 
@@ -114,9 +114,9 @@ I have 3 nodes and the PV was bound to a node1. The llama.cpp got scheduled on n
 
 llama-cpp pod was up and now I wanted to access it from outside, so we need to setup the n/wing for it. I went for nginx based ingress(-controller) and loadbalancer
 
-## definitions
+### definitions
 
-### Service
+#### Service
 
 ```
 apiVersion: v1
@@ -135,7 +135,7 @@ spec:
 ```
 
 
-### Ingress
+#### Ingress
 
 Since I was planning to use the same nginx controller cum loadbalancer which headlamp uses, we need to segregate their prefixes. I decided to access the llama server with prefix `/llama` so this extra config at the end. It basically rewrites the URLs of the requests once they are inside the cluster and strips off the prefix. This was not required in the headlamp's case because headlamp's URL prefix is configurable.
 

@@ -133,6 +133,9 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 6px;
+    margin: 0 -6px;
+    background-clip: content-box;
 }
 
 .resize-handle:hover,
@@ -578,7 +581,7 @@ html, body {
 }
 
 .outline-panel {
-    width: 220px;
+    width: 260px;
     min-width: 160px;
     background: var(--mantle);
     overflow-y: auto;
@@ -628,6 +631,9 @@ html, body {
     background: var(--surface0);
     flex-shrink: 0;
     transition: background 0.15s;
+    padding: 0 6px;
+    margin: 0 -6px;
+    background-clip: content-box;
 }
 
 .outline-resize-handle:hover,
@@ -687,7 +693,12 @@ html, body {
     }
 
     .top-bar {
-        padding: 8px 4px;
+        padding: 8px 10px;
+    }
+
+    .menu-toggle,
+    .theme-toggle {
+        margin: 0 -20px;
     }
 
     .cardlink-image {

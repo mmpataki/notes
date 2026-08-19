@@ -352,7 +352,9 @@
             if (depth === 0) item.style.fontWeight = "500";
             item.textContent = h.textContent;
             item.addEventListener("click", function() {
-                h.scrollIntoView({ behavior: "smooth", block: "start" });
+                var content = document.querySelector(".content");
+                var offset = h.offsetTop - 50;
+                content.scrollTo({ top: offset, behavior: "smooth" });
             });
             container.appendChild(item);
         });
