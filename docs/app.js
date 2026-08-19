@@ -337,54 +337,16 @@
         var headings = document.querySelectorAll("#note-content h2, #note-content h3, #note-content h4, #note-content h5");
         if (!headings.length) return;
 
-        // Give each heading an id for scrolling
         headings.forEach(function(h, i) {
             if (!h.id) h.id = "heading-" + i;
-        });
-
-        // Build nested structure
-        var stack = [{ level: 1, el: container }];
-
-        headings.forEach(function(h) {
             var level = parseInt(h.tagName[1]);
             var item = document.createElement("div");
             item.className = "outline-item outline-h" + level;
-
-            var label = document.createElement("div");
-            label.className = "outline-label";
-            label.textContent = h.textContent;
-            label.addEventListener("click", function(e) {
-                e.stopPropagation();
+            item.textContent = h.textContent;
+            item.addEventListener("click", function() {
                 h.scrollIntoView({ behavior: "smooth", block: "start" });
-                // Toggle children if has them
-                if (item.classList.contains("has-children")) {
-                    item.classList.toggle("open");
-                }
             });
-            item.appendChild(label);
-
-            // Find correct parent level
-            while (stack.length > 1 && stack[stack.length - 1].level >= level) {
-                stack.pop();
-            }
-
-            var parent = stack[stack.length - 1].el;
-            // If parent is an outline-item, add to its children container
-            if (parent.classList && parent.classList.contains("outline-item")) {
-                var children = parent.querySelector(".outline-children");
-                if (!children) {
-                    children = document.createElement("div");
-                    children.className = "outline-children";
-                    parent.appendChild(children);
-                    parent.classList.add("has-children");
-                    parent.classList.add("open");
-                }
-                children.appendChild(item);
-            } else {
-                parent.appendChild(item);
-            }
-
-            stack.push({ level: level, el: item });
+            container.appendChild(item);
         });
 
         // Highlight active heading on scroll
@@ -399,12 +361,9 @@
                 el.classList.remove("active");
             });
             if (active) {
-                var target = container.querySelector('[class*="outline-h"]');
-                container.querySelectorAll(".outline-label").forEach(function(lbl) {
-                    if (lbl.textContent === active.textContent) {
-                        lbl.parentElement.classList.add("active");
-                    }
-                });
+                var idx = Array.prototype.indexOf.call(headings, active);
+                var items = container.querySelectorAll(".outline-item");
+                if (items[idx]) items[idx].classList.add("active");
             }
         });
     }

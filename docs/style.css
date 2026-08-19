@@ -605,10 +605,6 @@ html, body {
 .outline-item {
     cursor: pointer;
     user-select: none;
-}
-
-.outline-item > .outline-label {
-    display: block;
     padding: 3px 12px;
     color: var(--subtext0);
     white-space: nowrap;
@@ -617,37 +613,20 @@ html, body {
     border-left: 2px solid transparent;
 }
 
-.outline-item > .outline-label:hover {
+.outline-item:hover {
     background: var(--surface0);
 }
 
-.outline-item.active > .outline-label {
+.outline-item.active {
     color: var(--text);
     border-left-color: var(--accent);
     background: var(--surface0);
 }
 
-.outline-item.has-children > .outline-label::before {
-    content: "\25BE ";
-    font-size: 9px;
-}
-
-.outline-item.has-children:not(.open) > .outline-label::before {
-    content: "\25B8 ";
-}
-
-.outline-item > .outline-children {
-    display: none;
-}
-
-.outline-item.open > .outline-children {
-    display: block;
-}
-
-.outline-h2 > .outline-label { padding-left: 16px; }
-.outline-h3 > .outline-label { padding-left: 28px; }
-.outline-h4 > .outline-label { padding-left: 40px; }
-.outline-h5 > .outline-label { padding-left: 52px; }
+.outline-h2 { padding-left: 12px; }
+.outline-h3 { padding-left: 24px; }
+.outline-h4 { padding-left: 36px; }
+.outline-h5 { padding-left: 48px; }
 
 .menu-toggle {
     display: none;
