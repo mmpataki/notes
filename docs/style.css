@@ -582,9 +582,20 @@ html, body {
     min-width: 160px;
     background: var(--mantle);
     overflow-y: auto;
-    padding: 12px 0;
     border-left: 1px solid var(--surface0);
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.outline-header {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--overlay1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 12px 4px;
 }
 
 .outline-tree {
