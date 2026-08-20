@@ -1,55 +1,55 @@
 {
-  "notes": {
-    "inference": {
+  "inference": {
+    "k8s-docker-inference": {
       "assets": {
-        "Pasted image 20260808111314.png": "notes/inference/assets/Pasted image 20260808111314.png",
-        "Pasted image 20260809103539.png": "notes/inference/assets/Pasted image 20260809103539.png",
-        "Pasted image 20260809112000.png": "notes/inference/assets/Pasted image 20260809112000.png",
-        "Pasted image 20260809112216.png": "notes/inference/assets/Pasted image 20260809112216.png",
-        "Pasted image 20260816113546.png": "notes/inference/assets/Pasted image 20260816113546.png",
-        "Pasted image 20260816113610.png": "notes/inference/assets/Pasted image 20260816113610.png",
-        "Pasted image 20260816113825.png": "notes/inference/assets/Pasted image 20260816113825.png",
-        "Pasted image 20260816113836.png": "notes/inference/assets/Pasted image 20260816113836.png",
-        "Pasted image 20260816115547.png": "notes/inference/assets/Pasted image 20260816115547.png"
+        "Pasted image 20260808111314.png": "inference/k8s-docker-inference/assets/Pasted image 20260808111314.png",
+        "Pasted image 20260809103539.png": "inference/k8s-docker-inference/assets/Pasted image 20260809103539.png",
+        "Pasted image 20260809112000.png": "inference/k8s-docker-inference/assets/Pasted image 20260809112000.png",
+        "Pasted image 20260809112216.png": "inference/k8s-docker-inference/assets/Pasted image 20260809112216.png",
+        "Pasted image 20260816113546.png": "inference/k8s-docker-inference/assets/Pasted image 20260816113546.png",
+        "Pasted image 20260816113610.png": "inference/k8s-docker-inference/assets/Pasted image 20260816113610.png",
+        "Pasted image 20260816113825.png": "inference/k8s-docker-inference/assets/Pasted image 20260816113825.png",
+        "Pasted image 20260816113836.png": "inference/k8s-docker-inference/assets/Pasted image 20260816113836.png",
+        "Pasted image 20260816115547.png": "inference/k8s-docker-inference/assets/Pasted image 20260816115547.png"
       },
       "part-1-llama-cpp-on-k8s-the-napkin-math.md": {
-        "path": "notes/inference/part-1-llama-cpp-on-k8s-the-napkin-math.md",
+        "path": "inference/k8s-docker-inference/part-1-llama-cpp-on-k8s-the-napkin-math.md",
         "title": "part 1 - llama.cpp on k8s, the napkin math"
       },
       "part-10-benchmarking-llama-cpp.md": {
-        "path": "notes/inference/part-10-benchmarking-llama-cpp.md",
+        "path": "inference/k8s-docker-inference/part-10-benchmarking-llama-cpp.md",
         "title": "part 10 - benchmarking llama-cpp"
       },
       "part-2-tech-stack.md": {
-        "path": "notes/inference/part-2-tech-stack.md",
+        "path": "inference/k8s-docker-inference/part-2-tech-stack.md",
         "title": "part 2 - tech stack"
       },
       "part-3-device-plugins.md": {
-        "path": "notes/inference/part-3-device-plugins.md",
+        "path": "inference/k8s-docker-inference/part-3-device-plugins.md",
         "title": "part 3 - device plugins"
       },
       "part-4-k8s-networking.md": {
-        "path": "notes/inference/part-4-k8s-networking.md",
+        "path": "inference/k8s-docker-inference/part-4-k8s-networking.md",
         "title": "part 4 - k8s networking"
       },
       "part-5-helm-and-headlamp.md": {
-        "path": "notes/inference/part-5-helm-and-headlamp.md",
+        "path": "inference/k8s-docker-inference/part-5-helm-and-headlamp.md",
         "title": "part 5 - helm and headlamp"
       },
       "part-6-k8s-storage.md": {
-        "path": "notes/inference/part-6-k8s-storage.md",
+        "path": "inference/k8s-docker-inference/part-6-k8s-storage.md",
         "title": "part 6 - k8s storage"
       },
       "part-7-llama-cpp.md": {
-        "path": "notes/inference/part-7-llama-cpp.md",
+        "path": "inference/k8s-docker-inference/part-7-llama-cpp.md",
         "title": "part 7 - llama.cpp"
       },
       "part-8-setting-up-monitoring.md": {
-        "path": "notes/inference/part-8-setting-up-monitoring.md",
+        "path": "inference/k8s-docker-inference/part-8-setting-up-monitoring.md",
         "title": "part 8 - setting up monitoring"
       },
       "part-9-remounting.md": {
-        "path": "notes/inference/part-9-remounting.md",
+        "path": "inference/k8s-docker-inference/part-9-remounting.md",
         "title": "part 9 - remounting"
       }
     }
