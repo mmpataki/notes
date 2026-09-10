@@ -1,4 +1,7 @@
 {
+  "assets": {
+    "Pasted image 20260530111023.png": "assets/Pasted image 20260530111023.png"
+  },
   "llms": {
     "k8s-docker-inference": {
       "assets": {
@@ -55,6 +58,26 @@
       "part-9-remounting.md": {
         "path": "llms/k8s-docker-inference/part-9-remounting.md",
         "title": "part 9 - remounting"
+      }
+    }
+  },
+  "notes": {
+    "gpus": {
+      "chapter-0-cuda-book.md": {
+        "path": "notes/gpus/chapter-0-cuda-book.md",
+        "title": "Chapter 0 - Cuda book"
+      },
+      "chapter-1-introduction-to-cuda.md": {
+        "path": "notes/gpus/chapter-1-introduction-to-cuda.md",
+        "title": "Chapter 1 - Introduction to CUDA"
+      },
+      "chapter-2-1-cuda-with-c.md": {
+        "path": "notes/gpus/chapter-2-1-cuda-with-c.md",
+        "title": "Chapter 2.1 - CUDA with C++"
+      },
+      "chapter-2-3-writing-simt-kernels.md": {
+        "path": "notes/gpus/chapter-2-3-writing-simt-kernels.md",
+        "title": "Chapter 2.3 - Writing SIMT Kernels"
       }
     }
   }
