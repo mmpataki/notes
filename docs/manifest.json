@@ -80,5 +80,13 @@
         "title": "Chapter 2.3 - Writing SIMT Kernels"
       }
     }
+  },
+  "research": {
+    "paper-reviews": {
+      "bpf-for-storage-an-exokernel-inspired-approach.md": {
+        "path": "research/paper-reviews/bpf-for-storage-an-exokernel-inspired-approach.md",
+        "title": "BPF for storage - an exokernel inspired approach"
+      }
+    }
   }
 }
